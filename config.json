@@ -1,0 +1,32 @@
+{
+    "wild_randomizer": {
+        "is_enabled": "yes"
+    },
+    "trainer_randomizer": {
+        "is_enabled": "yes",
+        "force_6_pokemons_on_important_trainers": "no",
+        "force_perfect_ivs": "no",
+        "make_ai_smart_for_all_trainers": "no",
+        "allow_all_trainers_to_terastalize": "no",
+        "randomize_fixed_tera_type": "yes",
+        "randomize_all_tera_type": "yes"
+    },
+    "personal_data_randomizer": {
+        "is_enabled": "yes",
+        "randomize_abilities": "no",
+        "randomize_movesets": "no"
+    },
+    "starter_randomizer": {
+        "is_enabled": "yes",
+        "randomize_all_gifts": "no",
+        "randomize_tera_type": "no"
+    },
+    "static_randomizer": {
+        "is_enabled": "yes",
+        "randomize_tera_type_for_static_tera": "yes"
+    },
+    "tm_randomizer": {
+        "is_enabled": "no"
+    }
+
+}

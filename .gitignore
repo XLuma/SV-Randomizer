@@ -1,0 +1,6 @@
+__pycache__/
+Randomizer/*/randomize.bat
+*.bin
+*.zip
+Redirection_Patch/
+MovesInGame/

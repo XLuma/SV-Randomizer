@@ -1,0 +1,89 @@
+struct SpeciesInfo {
+    species: uint16;
+    form: uint16;
+    model: uint16;
+    color: uint8;
+    body_type: uint8;
+    height: uint16;
+    weight: uint16;
+    reserved: uint8;
+    reserved1: uint8;
+    reserved2: uint8;
+}
+
+struct StatInfo {
+    HP: uint8;
+    ATK: uint8;
+    DEF: uint8;
+    SPA: uint8;
+    SPD: uint8;
+    SPE: uint8;
+}
+
+struct GenderInfo {
+    group: uint8; // 0 = Random, 1 = Male, 2 = Female, 3 = Genderless
+    ratio: uint8;
+}
+
+struct EggHatchInfo {
+    species: uint16;
+    form: uint16;
+    form_flags: uint16; // bit0 = Inherit Everstone Form
+    form_everstone: uint16;
+}
+
+struct EvoData {
+    level: uint16;
+    condition: uint16;
+    parameter: uint16;
+	reserved3: uint16;
+	reserved4: uint16;
+	reserved5: uint16;
+    species: uint16;
+    form: uint16;
+}
+
+struct LevelupMoveData {
+    move: uint16;
+    level: uint16;
+}
+
+struct DexData {
+    index: uint16;
+    group: uint8;
+}
+
+table Personal {
+    species: SpeciesInfo;
+    is_present: bool;
+    dex: DexData;
+    type_1: uint8;
+    type_2: uint8;
+    ability_1: uint16;
+    ability_2: uint16;
+    ability_3: uint16;
+    xp_growth: uint8;
+    catch_rate: uint8;
+    gender: GenderInfo;
+    egg_group_1: uint8;
+    egg_group_2: uint8;
+    egg_hatch: EggHatchInfo;
+    egg_hatch_steps: uint8;
+    base_friendship: uint8;
+    exp_addend: int16;
+    evo_stage: uint8;
+    unk_flag: bool;
+    ev_yield: StatInfo;
+    base_stats: StatInfo;
+    evo_data:[EvoData];
+    tm_moves:[uint16];
+    egg_moves:[uint16];
+    reminder_moves:[uint16];
+    levelup_moves:[LevelupMoveData];
+}
+
+table PersonalTable {
+    entry:[Personal];
+}
+
+root_type PersonalTable;
