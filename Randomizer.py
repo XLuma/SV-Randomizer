@@ -47,7 +47,7 @@ def randomize():
     config = open_config()
     create_modpack()
     if config['wild_randomizer']['is_enabled'] == "yes":
-        WildRandomizer.randomize()
+        WildRandomizer.randomize(config['wild_randomizer'])
         generateBinary("Randomizer/WildEncounters/pokedata_array.bfbs", "Randomizer/WildEncounters/pokedata_array.json", paths["wilds"])
     if config['trainer_randomizer']['is_enabled'] == "yes":
         TrainerRandomizer.randomize(config['trainer_randomizer'])
