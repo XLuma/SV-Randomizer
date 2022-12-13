@@ -172,6 +172,8 @@ def randomize(config):
             pokemon = randomizeAbilities(pokemon)
         if config['randomize_movesets'] == "yes":
             pokemon = randomizeMoveset(pokemon)
+        if config['randomize_evolutions'] == "yes":
+            pokemon = randomizeEvolutions(pokemon)
     
     outdata = json.dumps(data, indent=4)
     with open(os.getcwd() + "/Randomizer/PersonalData/" +"personal_array.json", 'w') as outfile:
