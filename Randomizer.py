@@ -7,14 +7,16 @@ import Randomizer.Starters.randomize_starters as StarterRandomizer
 import Randomizer.StaticSpawns.statics as StaticRandomizer
 import shutil
 import subprocess
+import platform
 
 #thanks zadenowen for the function
 def generateBinary(schema: str, json: str, path: str):
-    flatc = "flatc/flatc.exe"
+    iswindows = platform.system() == "Windows"
+    flatc = os.path.abspath("flatc/flatc.exe") if iswindows else "flatc"  # works for me, won't work if you don't have flatc installed, probably works on mac
     outpath = os.path.abspath("output/romfs/" + path)
     print(outpath)
     proc = subprocess.run(
-        [os.path.abspath(flatc),
+        [flatc,
         "-b",
         "-o",
         outpath,
