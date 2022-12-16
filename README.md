@@ -4,6 +4,7 @@
 
 PREFACE: Make sure you have at least Python 3.10 installed on your computer, anything lower will not work!
 PS: If after installing, and running the randomize batch script you see the Microsoft store open instead, in your windows search bar type "Manage App Execution Aliases" and turn off the ones that have "python.exe" and "python3.exe" under them (They are named App Installer)
+Linux Users: Make sure to install flatc (binary name) FlatBuffers (display name) from your package manager
 
 ### HOW TO USE:
 If not done, install Python 3.10 from either the Microsoft Store, or the official python website
