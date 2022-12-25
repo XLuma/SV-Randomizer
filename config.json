@@ -1,23 +1,23 @@
 {
     "wild_randomizer": {
         "is_enabled": "yes",
-        "exclude_legendaries": "yes"
+        "exclude_legendaries": "no"
     },
     "trainer_randomizer": {
         "is_enabled": "no",
-        "force_6_pokemons_on_important_trainers": "no",
-        "force_perfect_ivs": "no",
+        "force_6_pokemons_on_important_trainers": "yes",
+        "force_perfect_ivs": "yes",
         "make_ai_smart_for_all_trainers": "no",
         "allow_all_trainers_to_terastalize": "no",
         "randomize_fixed_tera_type": "no",
         "randomize_all_tera_type": "no"
     },
     "personal_data_randomizer": {
-        "is_enabled": "yes",
+        "is_enabled": "no",
         "randomize_abilities": "yes",
-        "ban_wonder_guard": "yes",
-        "randomize_movesets": "no",
-        "randomize_evolutions": "yes"
+        "ban_wonder_guard": "no",
+        "randomize_movesets": "yes",
+        "randomize_evolutions": "no"
     },
     "starter_randomizer": {
         "is_enabled": "yes",
@@ -30,6 +30,3 @@
     },
     "tm_randomizer": {
         "is_enabled": "no"
-    }
-
-}
