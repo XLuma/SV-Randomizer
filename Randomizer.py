@@ -5,6 +5,7 @@ import Randomizer.Trainers.trainerrando as TrainerRandomizer
 import Randomizer.PersonalData.personal_randomizer as PersonalRandomizer
 import Randomizer.Starters.randomize_starters as StarterRandomizer
 import Randomizer.StaticSpawns.statics as StaticRandomizer
+import Randomizer.Scenes.patchscene as PatchScene
 import shutil
 import subprocess
 
@@ -41,8 +42,11 @@ paths = {
     "gifts": "world/data/event/event_add_pokemon/eventAddPokemon",
     "personal": "avalon/data",
     "statics": "world/data/field/fixed_symbol/fixed_symbol_table",
-    "tms": "world/data/item/itemdata"
+    "tms": "world/data/item/itemdata",
+    "catalog": "pokemon/catalog/catalog",
+    "scenes": "world/scene/parts/event/event_scenario/main_scenario/common_0070_"
 }
+
 def randomize():
     config = open_config()
     create_modpack()
@@ -61,6 +65,12 @@ def randomize():
     if config['static_randomizer']['is_enabled'] == "yes":
         StaticRandomizer.randomize(config['static_randomizer'])
         generateBinary("Randomizer/StaticSpawns/fixed_symbol_table_array.bfbs", "Randomizer/StaticSpawns/fixed_symbol_table_array.json", paths["statics"])
+    if config['starter_randomizer']['is_enabled'] == "yes" and config['starter_randomizer']['show_starters_in_overworld'] == "yes":
+        PatchScene.patchScenes()
+        generateBinary("Randomizer/Scenes/poke_resource_table.fbs", "Randomizer/Scenes/poke_resource_table.json", paths['catalog'])
+        os.makedirs("output/romfs/" + paths['scenes'], mode=777, exist_ok=True)
+        shutil.copyfile("Randomizer/Scenes/common_0070_always_0.trsog", "output/romfs/" + paths['scenes'] + '/common_0070_always_0.trsog')
+        shutil.copyfile("Randomizer/Scenes/common_0070_always_1.trsog", "output/romfs/" + paths['scenes'] + '/common_0070_always_1.trsog')
     shutil.make_archive("output/randomizer", "zip", "output/romfs/")
 
 def test():

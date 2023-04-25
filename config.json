@@ -1,6 +1,6 @@
 {
     "wild_randomizer": {
-        "is_enabled": "yes",
+        "is_enabled": "no",
         "exclude_legendaries": "yes"
     },
     "trainer_randomizer": {
@@ -13,7 +13,7 @@
         "randomize_all_tera_type": "no"
     },
     "personal_data_randomizer": {
-        "is_enabled": "yes",
+        "is_enabled": "no",
         "randomize_abilities": "yes",
         "ban_wonder_guard": "yes",
         "randomize_movesets": "no",
@@ -22,7 +22,8 @@
     "starter_randomizer": {
         "is_enabled": "yes",
         "randomize_all_gifts": "no",
-        "randomize_tera_type": "no"
+        "randomize_tera_type": "no",
+        "show_starters_in_overworld": "yes"
     },
     "static_randomizer": {
         "is_enabled": "no",
