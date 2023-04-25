@@ -1,6 +1,6 @@
 --- Pokemon Scarlet and Violet Randomizer by XLuma ----
 
-*** THIS RANDOMIZER WORKS ONLY WITH VERSION 1.0.1 AND ABOVE, DO NOT USE 1.0 AS YOUR GAME UPDATE ***
+*** THIS RANDOMIZER WORKS ONLY WITH VERSION 1.2.0, DO NOT USE ANY UPDATES BELOW***
 PREFACE: Make sure you have at least Python 3.10 installed on your computer, anything lower will not work!
 PS: If after installing, and running the randomize batch script you see the Microsoft store open instead, in your windows search bar type "Manage App Execution Aliases" and turn off the ones that have "python.exe" and "python3.exe" under them (They are named App Installer)
 
