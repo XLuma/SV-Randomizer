@@ -76,7 +76,9 @@ def randomize():
     if config['patch_trpfd'] == "yes":
         FileDescriptor.patchFileDescriptor()
         generateBinary("Randomizer/FileDescriptor/data.fbs", "Randomizer/FileDescriptor/data.json", paths['trpfd'])
-    shutil.make_archive("output/randomizer", "zip", "output/")
+        shutil.make_archive("output/randomizer", "zip", "output/")
+    else:
+        shutil.make_archive("output/randomizer", "zip", "output/romfs/")
 
 def test():
     create_modpack()
