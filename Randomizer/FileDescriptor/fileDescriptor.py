@@ -1,21 +1,7 @@
 import json
 import pathlib
 import os
-import numpy
 import fnvhash
-import math
-
-FNV_PRIME = numpy.uint64(0x00000100000001b3)
-FNV_BASIS = numpy.uint64(0xCBF29CE484222645)
-
-def GFFNVHash(path: str):
-    buf = path.encode()
-    result = FNV_BASIS
-    for byte in buf:
-        result = numpy.bitwise_xor(result, numpy.uint64(int(byte, 16)))
-        #result ^= byte
-        result *= FNV_PRIME
-    return result
 
 def patchFileDescriptor():
     file = open(os.getcwd()+ "/Randomizer/FileDescriptor/data_clean.json")
