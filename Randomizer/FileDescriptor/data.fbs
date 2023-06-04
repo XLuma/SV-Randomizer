@@ -1,0 +1,25 @@
+namespace Titan.FileSystem;
+
+file_extension "trpfd";
+table EmptyTable {
+
+}
+
+table FileInfo {
+	pack_index: uint64;
+	unk_1: EmptyTable;
+}
+
+table Packinfo {
+	file_size: uint64;
+	file_count: uint64;
+}
+
+table TRPFD {
+	file_hashes: [uint64];
+	pack_strings: [string];
+	files: [FileInfo];
+	packs: [Packinfo];
+}
+
+root_type TRPFD;

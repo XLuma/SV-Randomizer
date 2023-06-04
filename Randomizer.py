@@ -6,6 +6,7 @@ import Randomizer.PersonalData.personal_randomizer as PersonalRandomizer
 import Randomizer.Starters.randomize_starters as StarterRandomizer
 import Randomizer.StaticSpawns.statics as StaticRandomizer
 import Randomizer.Scenes.patchscene as PatchScene
+import Randomizer.FileDescriptor.fileDescriptor as FileDescriptor
 import shutil
 import subprocess
 
@@ -44,7 +45,8 @@ paths = {
     "statics": "world/data/field/fixed_symbol/fixed_symbol_table",
     "tms": "world/data/item/itemdata",
     "catalog": "pokemon/catalog/catalog",
-    "scenes": "world/scene/parts/event/event_scenario/main_scenario/common_0070_"
+    "scenes": "world/scene/parts/event/event_scenario/main_scenario/common_0070_",
+    "trpfd": "arc"
 }
 
 def randomize():
@@ -71,6 +73,9 @@ def randomize():
         os.makedirs("output/romfs/" + paths['scenes'], mode=777, exist_ok=True)
         shutil.copyfile("Randomizer/Scenes/common_0070_always_0.trsog", "output/romfs/" + paths['scenes'] + '/common_0070_always_0.trsog')
         shutil.copyfile("Randomizer/Scenes/common_0070_always_1.trsog", "output/romfs/" + paths['scenes'] + '/common_0070_always_1.trsog')
+    if config['patch_trpfd'] == "yes":
+        FileDescriptor.patchFileDescriptor()
+        generateBinary("Randomizer/FileDescriptor/data.fbs", "Randomizer/FileDescriptor/data.json", paths['trpfd'])
     shutil.make_archive("output/randomizer", "zip", "output/romfs/")
 
 def test():

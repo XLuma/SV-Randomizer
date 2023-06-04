@@ -31,6 +31,6 @@
     },
     "tm_randomizer": {
         "is_enabled": "no"
-    }
-
+    },
+    "patch_trpfd": "yes"
 }
