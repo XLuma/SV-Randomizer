@@ -133,8 +133,6 @@ def generate_lot_value_for_biome(biome_type: str):
         return random.randint(1, 50)
 def generate_area():
     return(random.sample(range(1, 27), 10))
-def generate_area_list():
-    return(print(*generate_area(), sep = ','))
 
 ### Utility function because otherwise, randomize() would be fucked up
 def make_template(new_template, index, csvdata, form=0):
@@ -152,7 +150,7 @@ def make_template(new_template, index, csvdata, form=0):
     new_template['lotvalue3'] = generate_lot_value_for_biome(new_template['biome3'])
     new_template['lotvalue4'] = generate_lot_value_for_biome(new_template['biome4'])
     chosen_biomes.clear()
-    new_template['area'] = generate_area_list()
+    new_template['area'] = generate_area()
     new_template['locationName'] = ""
     new_template['enabletable']['land'] = True
     new_template['enabletable']['up_water'] = True
@@ -215,7 +213,7 @@ def randomize(config):
         entry['lotvalue3'] = generate_lot_value_for_biome(entry['biome3'])
         entry['lotvalue4'] = generate_lot_value_for_biome(entry['biome4'])
         chosen_biomes.clear()
-        entry['area'] = generate_area_list()
+        entry['area'] = generate_area()
         entry['locationName'] = ""
         entry['enabletable']['land'] = True
         entry['enabletable']['up_water'] = True
