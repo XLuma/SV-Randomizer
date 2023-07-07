@@ -71,7 +71,7 @@ def get_alt_form(index: int):
             case 80:
                 #choice = random.randint(0, 100)
                 #if choice < 49:
-                    return [2]
+                return [2]
                 #else:
                 #    return 0
             case 128:
@@ -89,7 +89,7 @@ def get_alt_form(index: int):
             case 550:
                 #choice = random.randint(0, 100)
                 #if choice < 49:
-                    return [2]
+                return [2]
                 #else:
                 #    return 0
             #case 745: #all forms already in the table
@@ -107,18 +107,18 @@ def get_alt_form(index: int):
                 #if choice < 49:
                 #    return 0
                 #else:
-                    return [1]
+                return [1]
     else:
         return [0]
 
 ### Utility functions for biomes ###
 def pick_random_biome1():
-    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OSEAN", "RUINS", "FLOWER"]
+    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OCEAN", "RUINS", "FLOWER",]
     choice = possible_biomes[random.randint(0, len(possible_biomes) - 1)]
     chosen_biomes.append(choice)
     return choice
 def pick_random_biomerest():
-    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OSEAN", "RUINS", "FLOWER"]
+    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OCEAN", "RUINS", "FLOWER", "NONE"]
     choice = possible_biomes[random.randint(0, len(possible_biomes) - 1)]
     while choice in chosen_biomes:
         choice = possible_biomes[random.randint(0, len(possible_biomes) - 1)]
@@ -130,7 +130,7 @@ def generate_lot_value_for_biome(biome_type: str):
     if biome_type == "NONE":
         return 0
     else:
-        return random.randint(1, 100)
+        return random.randint(1, 50)
 
 ### Utility function because otherwise, randomize() would be fucked up
 def make_template(new_template, index, csvdata, form=0):
@@ -138,7 +138,7 @@ def make_template(new_template, index, csvdata, form=0):
     new_template['formno'] = form
     new_template['minlevel'] = 2
     new_template['maxlevel'] = 99
-    new_template['lotvalue'] = random.randint(1, 100)
+    new_template['lotvalue'] = random.randint(1, 50)
     new_template['biome1'] = pick_random_biome1()
     new_template['biome2'] = pick_random_biomerest()
     new_template['biome3'] = pick_random_biomerest()
@@ -148,7 +148,7 @@ def make_template(new_template, index, csvdata, form=0):
     new_template['lotvalue3'] = generate_lot_value_for_biome(new_template['biome3'])
     new_template['lotvalue4'] = generate_lot_value_for_biome(new_template['biome4'])
     chosen_biomes.clear()
-    new_template['area'] = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27"
+    new_template['area'] = random.sample(range(1, 27), 10)
     new_template['locationName'] = ""
     new_template['enabletable']['land'] = True
     new_template['enabletable']['up_water'] = True
@@ -201,7 +201,7 @@ def randomize(config):
             recreated_altforms.append(entry['devid'])
         entry['minlevel'] = 2
         entry['maxlevel'] = 99
-        entry['lotvalue'] = random.randint(1, 100)
+        entry['lotvalue'] = random.randint(1, 50)
         entry['biome1'] = pick_random_biome1()
         entry['biome2'] = pick_random_biomerest()
         entry['biome3'] = pick_random_biomerest()
@@ -211,7 +211,7 @@ def randomize(config):
         entry['lotvalue3'] = generate_lot_value_for_biome(entry['biome3'])
         entry['lotvalue4'] = generate_lot_value_for_biome(entry['biome4'])
         chosen_biomes.clear()
-        entry['area'] = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27"
+        entry['area'] = random.sample(range(1, 27), 10)
         entry['locationName'] = ""
         entry['enabletable']['land'] = True
         entry['enabletable']['up_water'] = True
@@ -277,15 +277,15 @@ def randomize(config):
                     #print(form_template)
                     data['values'].append(form_template)
 
-                
-    
+
+
     outdata = json.dumps(data, indent=4)
     with open(os.getcwd() + "/Randomizer/WildEncounters/" + "pokedata_array.json", 'w') as outfile:
         outfile.write(outdata)
     print("Randomisation done !")
     
 def main():
-   randomize()
+    randomize()
 
 if __name__ == "__main__":
     main()
