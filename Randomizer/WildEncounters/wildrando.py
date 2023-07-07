@@ -113,12 +113,12 @@ def get_alt_form(index: int):
 
 ### Utility functions for biomes ###
 def pick_random_biome1():
-    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OCEAN", "RUINS", "FLOWER",]
+    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OSEAN", "RUINS", "FLOWER",]
     choice = possible_biomes[random.randint(0, len(possible_biomes) - 1)]
     chosen_biomes.append(choice)
     return choice
 def pick_random_biomerest():
-    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OCEAN", "RUINS", "FLOWER", "NONE"]
+    possible_biomes = ["GRASS", "FOREST", "SWAMP", "LAKE", "TOWN", "MOUNTAIN", "BAMBOO", "MINE", "CAVE", "OLIVE", "UNDERGROUND", "RIVER", "ROCKY", "BEACH", "SNOW", "OSEAN", "RUINS", "FLOWER", "NONE"]
     choice = possible_biomes[random.randint(0, len(possible_biomes) - 1)]
     while choice in chosen_biomes:
         choice = possible_biomes[random.randint(0, len(possible_biomes) - 1)]
@@ -131,6 +131,10 @@ def generate_lot_value_for_biome(biome_type: str):
         return 0
     else:
         return random.randint(1, 50)
+def generate_area():
+    return(random.sample(range(1, 27), 10))
+def generate_area_list():
+    return(print(*generate_area(), sep = ','))
 
 ### Utility function because otherwise, randomize() would be fucked up
 def make_template(new_template, index, csvdata, form=0):
@@ -148,7 +152,7 @@ def make_template(new_template, index, csvdata, form=0):
     new_template['lotvalue3'] = generate_lot_value_for_biome(new_template['biome3'])
     new_template['lotvalue4'] = generate_lot_value_for_biome(new_template['biome4'])
     chosen_biomes.clear()
-    new_template['area'] = random.sample(range(1, 27), 10)
+    new_template['area'] = generate_area_list()
     new_template['locationName'] = ""
     new_template['enabletable']['land'] = True
     new_template['enabletable']['up_water'] = True
