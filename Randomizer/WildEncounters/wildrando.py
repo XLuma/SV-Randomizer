@@ -215,7 +215,7 @@ def randomize(config):
         entry['lotvalue3'] = generate_lot_value_for_biome(entry['biome3'])
         entry['lotvalue4'] = generate_lot_value_for_biome(entry['biome4'])
         chosen_biomes.clear()
-        entry['area'] = random.sample(range(1, 27), 10)
+        entry['area'] = generate_area_list()
         entry['locationName'] = ""
         entry['enabletable']['land'] = True
         entry['enabletable']['up_water'] = True
