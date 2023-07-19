@@ -6,7 +6,7 @@ PS: If after installing, and running the randomize batch script you see the Micr
 
 HOW TO USE:
 
-- If not done, install Python 3.10 from either the Microsoft Store, or the official python website
+- If not done, install Python 3.11 from either the Microsoft Store, or the official python website
 
 Step 1: Open the config.json in any text editor (even notepad works) and configure the file how you want it. To enable an option, type yes between quotes. If you want to disable , then type no instead.
 Step 2: Save your edits to the config.json, and double click the randomize.bat file. A window will appear with some logs, and eventually a Press Enter to continue will appear, then you can close that window.
